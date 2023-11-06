@@ -10,6 +10,38 @@ const taskRouter = require('./routers/task');
 const app = express();
 const port = process.env.PORT || 3000;
 
+/* 
+const multer = require('multer');
+const upload = multer({
+  dest: 'images',
+  limits: {
+    fileSize: 1000000,
+  },
+  fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(doc|docx)$/)) {
+      return cb(new Error('Please upload a word document'));
+    }
+
+    cb(undefined, true);
+
+    // cb(new Error('File must be a PDF')); // if something goes wrong and we want to throw an error we simply pass that error to the callback function
+    // cb(undefined, true);   // if things go well we're not going to provide the first argument to callback 'undefined' saying that nothing went wrong. Then provide a boolean as the second argument we provide 'true' as upload is expected...
+    // cb(undefined, false);  // we are not going to use. This is silently reject the upload
+  },
+});
+
+app.post(
+  '/uploads',
+  upload.single('uploadfile'),
+  (req, res) => {
+    res.send();
+  },
+  (error, req, res, next) => {
+    res.status(400).send({ error: error.message });
+  }
+);
+ */
+
 // Express Middleware...
 // app.use((req, res, next) => {
 //   if (req.method === 'GET') {
